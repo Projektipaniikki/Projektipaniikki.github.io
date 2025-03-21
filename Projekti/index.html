@@ -1,58 +1,769 @@
-<!DOCTYPE html>
-<html>
-
 <head>
-  <meta charset="utf-8">
-  <title>Kiinteäleveyksinen sivutaitto</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Panic Group - Team Work Presentation</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Graduate&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: #F5E6DA;
+      padding-top: 70px;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: rgba(255, 255, 255, 0.5) !important;
+      backdrop-filter: blur(5px);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .navbar-brand,
+    .nav-link {
+      font-family: 'Graduate', sans-serif;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    section {
+      padding-top: 80px;
+      padding-bottom: 50px;
+    }
+
+    h1 {
+      margin-top: 20px;
+      margin-bottom: 80px;
+    }
+
+
+    .hero {
+      position: relative;
+      background: url('images/hero.jpeg') no-repeat center center/cover;
+      padding: 20px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      max-width: 1200px;
+      min-height: 60vh;
+      height: auto;
+      margin: 20px auto 100px auto;
+    }
+
+    .hero-overlay {
+      background-color: rgba(255, 255, 255, 0.5);
+      padding: 20px 40px;
+      border-radius: 10px;
+    }
+
+    .hero-overlay h1 {
+      font-size: 48px;
+      font-weight: bold;
+      color: black;
+      margin: 0;
+    }
+
+    .team-section {
+      padding: 80px 20px 40px 20px;
+    }
+
+    .team-section h2 {
+      color: #ffffff;
+    }
+
+    .team-member {
+      background-color: #5B7C99;
+      color: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 10px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .team-member img {
+      width: 140px;
+      height: 140px;
+      margin-left: 15px;
+      margin-right: 20px;
+      border-radius: 10px;
+      border: 3px solid white;
+    }
+
+    /*  */
+    .team-member button {
+      margin-right: 50px;
+    }
+
+    .team-member-content {
+      flex: 1;
+    }
+
+    .card {
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: 2px solid #ffffff;
+      margin-bottom: 20px;
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .card-text {
+      font-size: 16px;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    /* Цвета карточек */
+    .card.communication {
+      background-color: #f2f1ef;
+      color: #000;
+    }
+
+    .card.tiedostot {
+      background-color: #c69b9b;
+      color: #fff;
+    }
+
+    .card.meetings {
+      background-color: #7d98a1;
+      color: #fff;
+    }
+
+    .card.schedule {
+      background-color: #b9a39a;
+      color: #fff;
+    }
+
+    .team-member p {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .row.justify-content-center {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .btn-custom {
+      background-color: #5F93A7;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin: 5px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      width: 150px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: 2px solid #ffffff;
+    }
+
+    .btn-custom:hover {
+      background-color: #4A7C8A;
+    }
+  </style>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="header">
-      <h1>2 column fixed</h1>
-    </div><!-- header päättyy -->
-    <div class="sidebar">
-      <h3>Sidebar1 Content</h3>
-      <ul>
-        <li><a href="#">link 1</a></li>
-        <li><a href="#">link 2</a></li>
-        <li><a href="#">link 3</a></li>
-        <li><a href="#">link 4</a></li>
-      </ul>
-      <p>Donec eu mi sed turpis feugiat feugiat. Integer turpis arcu, pellentesque eget, cursus et, fermentum ut,
-        sapien.
-        Fusce metus mi, eleifend sollicitudin, molestie id, varius et, nibh. Donec nec libero.</p>
-      <p>Donec eu mi sed turpis feugiat feugiat. Integer turpis arcu, pellentesque eget, cursus et, fermentum ut,
-        sapien.
-        Fusce metus mi, eleifend sollicitudin, molestie id, varius et, nibh. Donec nec libero.</p>
-      <p>Donec eu mi sed turpis feugiat feugiat. Integer turpis arcu, pellentesque eget, cursus et, fermentum ut,
-        sapien.
-        Fusce metus mi, eleifend sollicitudin, molestie id, varius et, nibh. Donec nec libero.</p>
-    </div><!-- sidebar päättyy -->
-    <div class="maincontent">
-      <h1> Main Content </h1>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent aliquam, justo convallis luctus rutrum, erat
-        nulla fermentum diam, at nonummy quam ante ac quam. Maecenas urna purus, fermentum id, molestie in, commodo
-        porttitor, felis. Nam blandit quam ut lacus. Quisque ornare risus quis ligula. Phasellus tristique purus a augue
-        condimentum adipiscing. Aenean sagittis. Etiam leo pede, rhoncus venenatis, tristique in, vulputate at, odio.
-        Donec
-        et ipsum et sapien vehicula nonummy. Suspendisse potenti. Fusce varius urna id quam. Sed neque mi, varius eget,
-        tincidunt nec, suscipit id, libero. In eget purus. Vestibulum ut nisl. Donec eu mi sed turpis feugiat feugiat.
-        Integer turpis arcu, pellentesque eget, cursus et, fermentum ut, sapien. Fusce metus mi, eleifend sollicitudin,
-        molestie id, varius et, nibh. Donec nec libero.</p>
-      <h2>H2 level heading </h2>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent aliquam, justo convallis luctus rutrum, erat
-        nulla fermentum diam, at nonummy quam ante ac quam. Maecenas urna purus, fermentum id, molestie in, commodo
-        porttitor, felis. Nam blandit quam ut lacus. Quisque ornare risus quis ligula. Phasellus tristique purus a augue
-        condimentum adipiscing. Aenean sagittis. Etiam leo pede, rhoncus venenatis, tristique in, vulputate at, odio.
-      </p>
-    </div><!-- maincontent päättyy -->
-    <div class="clearfloat"></div>
-    <div class="footer">
-      <p>Footer</p>
-    </div><!-- footer päättyy -->
-  </div><!-- wrap päättyy -->
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">Project Panic</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#hero">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#team">Team</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#rules">Säännöt</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#info-cards">Info</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#project-goals">Tavoiteet</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#project-docs">Docs</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="hero">
+    <div class="hero-overlay">
+      <h1>PROJECT PANIC</h1>
+    </div>
+  </header>
+
+  <section class="container team-section" id="team">
+    <h1 class="text-center">DREAM TEAM</h1>
+    <div class="row justify-content-center d-flex flex-wrap">
+      <div class="col-md-10 col-lg-5 col-sm-12 team-member">
+        <img src="images/Hietala.jpeg" alt="Pinja Hietala">
+        <div class="team-member-content">
+          <h5>Pinja Hietala</h5>
+          <p><strong>Projektipäällikkö</strong><br>23, Vantaa<br>Ohjelmointi<br>Belbin: Resource Investigator</p>
+          <button type="button" class="btn btn-custom mt-2 float-end" data-bs-toggle="modal" data-bs-target="#pinjaModal">
+            Lisätiedot
+          </button>
+        </div>
+      </div>
+      <div class="modal fade" id="pinjaModal" tabindex="-1" aria-labelledby="pinjaModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content" style="background-color: #F5E6DA; border-radius: 15px;">
+            <div class="modal-header" style="border-bottom: 2px solid #5B7C99;">
+              <h5 class="modal-title" id="pinjaModalLabel">Pinja Hietala</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="d-flex flex-column align-items-center mb-3">
+                <img src="images/Hietala.jpeg" alt="Pinja Hietala" style="width: 150px; height: 150px; border-radius: 10px; border: 3px solid #5B7C99;">
+                <h4 class="mt-2">Projektipäällikkö</h4>
+              </div>
+              <div>
+                <p><strong>Ikä:</strong> 23</p>
+                <p><strong>Sijainti:</strong> Vantaa</p>
+                <p><strong>Erikoisuudet:</strong> Ohjelmointi</p>
+                <p><strong>Belbin rooli:</strong> Resource Investigator</p>
+                <p><strong>Kokemus:</strong> 4 vuotta ohjelmistokehityksen parissa, erikoistunut projektinhallintaan.</p>
+                <p><strong>Koulutus:</strong> Tietojenkäsittelytieteen kandidaatti, Helsingin yliopisto</p>
+                <p><strong>Harrastukset:</strong> Juoksu, pianonsoitto, koodauskilpailut</p>
+                <p><strong>Motto:</strong> "Hyvä suunnittelu on puoli voittoa!"</p>
+              </div>
+            </div>
+            <div class="modal-footer" style="border-top: 2px solid #5B7C99;">
+              <button type="button" class="btn btn-custom" data-bs-dismiss="modal">Sulje</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-10 col-lg-5 col-sm-12 team-member">
+        <img src="images/Karjalainen.jpeg" alt="Milla Karjalainen">
+        <div class="team-member-content">
+          <h5>Milla Karjalainen</h5>
+          <p><strong>Sisältövastaava</strong><br>26, Kajaani<br>Ohjelmointi, suunnittelu<br>Belbin: Implementer</p>
+          <button type="button" class="btn btn-custom mt-2 float-end" data-bs-toggle="modal" data-bs-target="#millaModal">
+            Lisätiedot
+          </button>
+        </div>
+      </div>
+      <div class="modal fade" id="millaModal" tabindex="-1" aria-labelledby="millaModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content" style="background-color: #F5E6DA; border-radius: 15px;">
+            <div class="modal-header" style="border-bottom: 2px solid #5B7C99;">
+              <h5 class="modal-title" id="millaModalLabel">Milla Karjalainen</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="d-flex flex-column align-items-center mb-3">
+                <img src="images/Karjalainen.jpeg" alt="Milla Karjalainen" style="width: 150px; height: 150px; border-radius: 10px; border: 3px solid #5B7C99;">
+                <h4 class="mt-2">Sisältövastaava</h4>
+              </div>
+              <div>
+                <p><strong>Ikä:</strong> 26</p>
+                <p><strong>Sijainti:</strong> Kajaani</p>
+                <p><strong>Erikoisuudet:</strong> Ohjelmointi, suunnittelu</p>
+                <p><strong>Belbin rooli:</strong> Implementer</p>
+                <p><strong>Kokemus:</strong> 5 vuotta sisällöntuotannon parissa, vahva osaaminen käyttöliittymäsuunnittelussa.</p>
+                <p><strong>Koulutus:</strong> Informaatioteknologian maisteri, Oulun yliopisto</p>
+                <p><strong>Harrastukset:</strong> Vaellus, valokuvaus, lukeminen</p>
+                <p><strong>Motto:</strong> "Yksinkertainen on kaunista, toimiva on täydellistä."</p>
+              </div>
+            </div>
+            <div class="modal-footer" style="border-top: 2px solid #5B7C99;">
+              <button type="button" class="btn btn-custom" data-bs-dismiss="modal">Sulje</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-10 col-lg-5 col-sm-12 team-member">
+        <img src="images/Juhola.jpeg" alt="Kaisa Juhola">
+        <div class="team-member-content">
+          <h5>Kaisa Juhola</h5>
+          <p><strong>Graafinen suunnittelu</strong><br>44, Eurajoki<br>Front-end, ohjelmointi<br>Belbin: Resource Investigator</p>
+          <button type="button" class="btn btn-custom mt-2 float-end" data-bs-toggle="modal" data-bs-target="#kaisaModal">
+            Lisätiedot
+          </button>
+        </div>
+      </div>
+      <div class="modal fade" id="kaisaModal" tabindex="-1" aria-labelledby="kaisaModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content" style="background-color: #F5E6DA; border-radius: 15px;">
+            <div class="modal-header" style="border-bottom: 2px solid #5B7C99;">
+              <h5 class="modal-title" id="kaisaModalLabel">Kaisa Juhola</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="d-flex flex-column align-items-center mb-3">
+                <img src="images/Juhola.jpeg" alt="Kaisa Juhola" style="width: 150px; height: 150px; border-radius: 10px; border: 3px solid #5B7C99;">
+                <h4 class="mt-2">Graafinen suunnittelu</h4>
+              </div>
+              <div>
+                <p><strong>Ikä:</strong> 44</p>
+                <p><strong>Sijainti:</strong> Eurajoki</p>
+                <p><strong>Erikoisuudet:</strong> Front-end, ohjelmointi</p>
+                <p><strong>Belbin rooli:</strong> Resource Investigator</p>
+                <p><strong>Kokemus:</strong> 15 vuotta graafisen suunnittelun ammattilaisena, erikoistunut käyttöliittymiin.</p>
+                <p><strong>Koulutus:</strong> Taiteen maisteri, Aalto-yliopisto</p>
+                <p><strong>Harrastukset:</strong> Taide, luonnossa liikkuminen, jooga</p>
+                <p><strong>Motto:</strong> "Visuaalinen viestintä on voimakkain kieli."</p>
+              </div>
+            </div>
+            <div class="modal-footer" style="border-top: 2px solid #5B7C99;">
+              <button type="button" class="btn btn-custom" data-bs-dismiss="modal">Sulje</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-10 col-lg-5 col-sm-12 team-member">
+        <img src="images/Kivinen.jpeg" alt="Markus Kivinen">
+        <div class="team-member-content">
+          <h5>Markus Kivinen</h5>
+          <p><strong>Tekninen johtaja</strong><br>32, Imatra<br>AI, ohjelmointi, peliohjelmointi<br>Belbin: Plant</p>
+          <button type="button" class="btn btn-custom mt-2 float-end" data-bs-toggle="modal" data-bs-target="#markusModal">
+            Lisätiedot
+          </button>
+        </div>
+      </div>
+      <div class="modal fade" id="markusModal" tabindex="-1" aria-labelledby="markusModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content" style="background-color: #F5E6DA; border-radius: 15px;">
+            <div class="modal-header" style="border-bottom: 2px solid #5B7C99;">
+              <h5 class="modal-title" id="markusModalLabel">Markus Kivinen</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="d-flex flex-column align-items-center mb-3">
+                <img src="images/Kivinen.jpeg" alt="Markus Kivinen" style="width: 150px; height: 150px; border-radius: 10px; border: 3px solid #5B7C99;">
+                <h4 class="mt-2">Tekninen johtaja</h4>
+              </div>
+              <div>
+                <p><strong>Ikä:</strong> 32</p>
+                <p><strong>Sijainti:</strong> Imatra</p>
+                <p><strong>Erikoisuudet:</strong> AI, ohjelmointi, peliohjelmointi</p>
+                <p><strong>Belbin rooli:</strong> Plant</p>
+                <p><strong>Kokemus:</strong> 10 vuotta ohjelmistokehityksessä, erityisesti tekoälyn parissa.</p>
+                <p><strong>Koulutus:</strong> Diplomi-insinööri, LUT-yliopisto</p>
+                <p><strong>Harrastukset:</strong> Pelinkehitys, robotiikka, shakkiturnaukset</p>
+                <p><strong>Motto:</strong> "Innovaatio syntyy ongelmanratkaisusta."</p>
+              </div>
+            </div>
+            <div class="modal-footer" style="border-top: 2px solid #5B7C99;">
+              <button type="button" class="btn btn-custom" data-bs-dismiss="modal">Sulje</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-10 col-lg-5 col-sm-12 team-member">
+        <img src="images/Koivukangas.jpeg" alt="Teemu Koivukangas">
+        <div class="team-member-content">
+          <h5>Teemu Koivukangas</h5>
+          <p><strong>Projektikoordinaattori</strong><br>32, Tuusula<br>Ohjelmointi<br>Belbin: Implementer/Teamworker</p>
+          <button type="button" class="btn btn-custom mt-2 float-end" data-bs-toggle="modal" data-bs-target="#teemuModal">
+            Lisätiedot
+          </button>
+        </div>
+      </div>
+      <div class="modal fade" id="teemuModal" tabindex="-1" aria-labelledby="teemuModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content" style="background-color: #F5E6DA; border-radius: 15px;">
+            <div class="modal-header" style="border-bottom: 2px solid #5B7C99;">
+              <h5 class="modal-title" id="teemuModalLabel">Teemu Koivukangas</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="d-flex flex-column align-items-center mb-3">
+                <img src="images/Koivukangas.jpeg" alt="Teemu Koivukangas" style="width: 150px; height: 150px; border-radius: 10px; border: 3px solid #5B7C99;">
+                <h4 class="mt-2">Projektikoordinaattori</h4>
+              </div>
+              <div>
+                <p><strong>Ikä:</strong> 32</p>
+                <p><strong>Sijainti:</strong> Tuusula</p>
+                <p><strong>Erikoisuudet:</strong> Ohjelmointi</p>
+                <p><strong>Belbin rooli:</strong> Implementer/Teamworker</p>
+                <p><strong>Kokemus:</strong> 8 vuotta projektinhallinnassa, erityisesti ketterissä tiimeissä.</p>
+                <p><strong>Koulutus:</strong> Tietojenkäsittelytieteen maisteri, Jyväskylän yliopisto</p>
+                <p><strong>Harrastukset:</strong> Kitaransoitto, pyöräily, keilaus</p>
+                <p><strong>Motto:</strong> "Kommunikaatio on yhteistyön avain."</p>
+              </div>
+            </div>
+            <div class="modal-footer" style="border-top: 2px solid #5B7C99;">
+              <button type="button" class="btn btn-custom" data-bs-dismiss="modal">Sulje</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-10 col-lg-5 col-sm-12 team-member">
+        <img src="images/Roitonen.jpeg" alt="Sergei Roitonen">
+        <div class="team-member-content">
+          <h5>Sergei Roitonen</h5>
+          <p><strong>Tekninen asiantuntija</strong><br>45, Lahti<br>Front-end, back-end ohjelmointi<br>Belbin: Specialist</p>
+          <button type="button" class="btn btn-custom mt-2 float-end" data-bs-toggle="modal" data-bs-target="#sergeiModal">
+            Lisätiedot
+          </button>
+        </div>
+      </div>
+      <div class="modal fade" id="sergeiModal" tabindex="-1" aria-labelledby="sergeiModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content" style="background-color: #F5E6DA; border-radius: 15px;">
+            <div class="modal-header" style="border-bottom: 2px solid #5B7C99;">
+              <h5 class="modal-title" id="sergeiModalLabel">Sergei Roitonen</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="d-flex flex-column align-items-center mb-3">
+                <img src="images/Roitonen.jpeg" alt="Sergei Roitonen" style="width: 150px; height: 150px; border-radius: 10px; border: 3px solid #5B7C99;">
+                <h4 class="mt-2">Tekninen asiantuntija</h4>
+              </div>
+              <div>
+                <p><strong>Ikä:</strong> 45</p>
+                <p><strong>Sijainti:</strong> Lahti</p>
+                <p><strong>Erikoisuudet:</strong> Front-end, back-end ohjelmointi</p>
+                <p><strong>Belbin rooli:</strong> Specialist</p>
+                <p><strong>Kokemus:</strong> 20 vuotta web-kehityksen parissa, laaja-alainen tekninen osaaminen.</p>
+                <p><strong>Koulutus:</strong> Tietotekniikan insinööri, Metropolia</p>
+                <p><strong>Harrastukset:</strong> Elektroniikka, koodausprojektit, kokkaus</p>
+                <p><strong>Motto:</strong> "Teknologian ymmärtäminen on valtaa."</p>
+              </div>
+            </div>
+            <div class="modal-footer" style="border-top: 2px solid #5B7C99;">
+              <button type="button" class="btn btn-custom" data-bs-dismiss="modal">Sulje</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-10 col-lg-5 col-sm-12 team-member">
+        <img src="images/Sukari.jpeg" alt="Niko Sukari">
+        <div class="team-member-content">
+          <h5>Niko Sukari</h5>
+          <p><strong>Fasilitaattori</strong><br>30, Lahti<br>Ohjelmointi<br>Belbin: Monitor Evaluator</p>
+          <button type="button" class="btn btn-custom mt-2 float-end" data-bs-toggle="modal" data-bs-target="#nikoModal">
+            Lisätiedot
+          </button>
+        </div>
+      </div>
+      <div class="modal fade" id="nikoModal" tabindex="-1" aria-labelledby="nikoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content" style="background-color: #F5E6DA; border-radius: 15px;">
+            <div class="modal-header" style="border-bottom: 2px solid #5B7C99;">
+              <h5 class="modal-title" id="nikoModalLabel">Niko Sukari</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="d-flex flex-column align-items-center mb-3">
+                <img src="images/Sukari.jpeg" alt="Niko Sukari" style="width: 150px; height: 150px; border-radius: 10px; border: 3px solid #5B7C99;">
+                <h4 class="mt-2">Fasilitaattori</h4>
+              </div>
+              <div>
+                <p><strong>Ikä:</strong> 30</p>
+                <p><strong>Sijainti:</strong> Lahti</p>
+                <p><strong>Erikoisuudet:</strong> Ohjelmointi</p>
+                <p><strong>Belbin rooli:</strong> Monitor Evaluator</p>
+                <p><strong>Kokemus:</strong> 7 vuotta ohjelmistoalalla, erikoistunut työpajojen fasilitointiin ja ryhmätyöskentelyyn.</p>
+                <p><strong>Koulutus:</strong> Kauppatieteiden maisteri, Turun yliopisto</p>
+                <p><strong>Harrastukset:</strong> Padel, lautapelit, matkustelu</p>
+                <p><strong>Motto:</strong> "Parhaiden ideoiden takana on aina toimiva tiimi."</p>
+              </div>
+            </div>
+            <div class="modal-footer" style="border-top: 2px solid #5B7C99;">
+              <button type="button" class="btn btn-custom" data-bs-dismiss="modal">Sulje</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-10 col-lg-5 col-sm-12 team-member">
+        <img src="images/Virtanen.jpeg" alt="Sara Virtanen">
+        <div class="team-member-content">
+          <h5>Sara Virtanen</h5>
+          <p><strong>Tietotekninen organisointi</strong><br>37, Helsinki<br>AI, UX, DevOps<br>Belbin: Completer Finisher</p>
+          <button type="button" class="btn btn-custom mt-2 float-end" data-bs-toggle="modal" data-bs-target="#saraModal">
+            Lisätiedot
+          </button>
+        </div>
+      </div>
+      <div class="modal fade" id="saraModal" tabindex="-1" aria-labelledby="saraModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content" style="background-color: #F5E6DA; border-radius: 15px;">
+            <div class="modal-header" style="border-bottom: 2px solid #5B7C99;">
+              <h5 class="modal-title" id="saraModalLabel">Sara Virtanen</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="d-flex flex-column align-items-center mb-3">
+                <img src="images/Virtanen.jpeg" alt="Sara Virtanen" style="width: 150px; height: 150px; border-radius: 10px; border: 3px solid #5B7C99;">
+                <h4 class="mt-2">Tietotekninen organisointi</h4>
+              </div>
+              <div>
+                <p><strong>Ikä:</strong> 37</p>
+                <p><strong>Sijainti:</strong> Helsinki</p>
+                <p><strong>Erikoisuudet:</strong> AI, UX, DevOps</p>
+                <p><strong>Belbin rooli:</strong> Completer Finisher</p>
+                <p><strong>Kokemus:</strong> 12 vuotta UX-suunnittelun ja DevOps-käytäntöjen parissa.</p>
+                <p><strong>Koulutus:</strong> Tietojärjestelmätieteen tohtori, Aalto-yliopisto</p>
+                <p><strong>Harrastukset:</strong> Kuorolaulu, koodiprojektit, pilates</p>
+                <p><strong>Motto:</strong> "Järjestys tuo tehokkuutta, tehokkuus tuo tuloksia."</p>
+              </div>
+            </div>
+            <div class="modal-footer" style="border-top: 2px solid #5B7C99;">
+              <button type="button" class="btn btn-custom" data-bs-dismiss="modal">Sulje</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container rules-section" id="rules">
+    <h1 class="text-center">RYHMÄN SÄÄNNÖT JA ARVOT</h1>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <h5>Osallistuminen Ja Sitoutuminen</h5>
+        <p>Tiimin toiminnan sujuvuus edellyttää jokaisen jäsenen aktiivista osallistumista ja viestintää. Ongelmatilanteissa kannustetaan pyytämään apua.</p>
+        <h5>Poissaolojen Käsittely</h5>
+        <ul>
+          <li><strong>Ensimmäinen poissaolo ilman ilmoitusta:</strong> Keskustelu tiimin kanssa syistä ja keinoista estää jatkossa poissaoloja.</li>
+          <li><strong>Toinen poissaolo ilman ilmoitusta:</strong> Kirjallinen varoitus, jossa muistutetaan osallistumisen tärkeydestä.</li>
+          <li><strong>Kolmas poissaolo ilman ilmoitusta:</strong> Jäsen irtisanotaan tiimistä, jotta projektin eteneminen ei kärsi.</li>
+        </ul>
+        <h5>Tuki Ja Vastuu</h5>
+        <p>Tiimin tavoitteena on yhdessä onnistuminen. Jäseniä tuetaan hankalissa tilanteissa, ja ongelmat pyritään ratkaisemaan ajoissa. Jokainen vastaa omien tehtäviensä hoitamisesta sovitussa aikataulussa.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container my-5" id="info-cards">
+    <h1 class="text-center">RYHMÄN INFO</h1>
+    <div class="row justify-content-center">
+      <!-- YHTEYDENPITO -->
+      <div class="col-md-6 col-lg-5 mb-4">
+        <div class="card communication">
+          <div class="card-body">
+            <h5 class="card-title">YHTEYDENPITO</h5>
+            <p class="card-text">Ryhmän Discordin linkit löytyvät viestintä tapahtuu välityksellä. Kaikki ryhmän resursseihin keskusteluryhmästä.</p>
+          </div>
+        </div>
+      </div>
+      <!-- PROJEKTIPANKKI -->
+      <div class="col-md-6 col-lg-5 mb-4">
+        <div class="card tiedostot">
+          <div class="card-body">
+            <h5 class="card-title">PROJEKTIPANKKI</h5>
+            <p class="card-text">Projektin tiedostot sijaitsevat OneDrivessa, Canvassa sekä GitHubissa. Kaikilla ryhmän jäsenillä on pääsy tiedostoihin.</p>
+          </div>
+        </div>
+      </div>
+      <!-- VIIKKOTAPAAMISET -->
+      <div class="col-md-6 col-lg-5 mb-4">
+        <div class="card meetings">
+          <div class="card-body">
+            <h5 class="card-title">VIIKKOTAPAAMISET</h5>
+            <p class="card-text">Zoom-tapaamiset tiistaisin klo 17. Viikkopalavereista tehdään muistiot, joten läsnäolo ei välttämätöntä.</p>
+          </div>
+        </div>
+      </div>
+      <!-- AIKATAULU -->
+      <div class="col-md-6 col-lg-5 mb-4">
+        <div class="card schedule">
+          <div class="card-body">
+            <h5 class="card-title">AIKATAULU</h5>
+            <p class="card-text">Projektin aikataulu on kurssin keston raamittama. Ja kurssi päättyy alkoi 9.1.2025 toukokuussa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container my-5" id="project-goals">
+    <h1 class="text-center">PROJEKTIN TAVOITTEET</h1>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <h4>Projektin päätavoite</h4>
+        <p>Projektin päätavoitteena on mahdollistaa Olli Opiskelijan insinööriopintojen suorittaminen Tampereen ammattikorkeakoulussa neljässä vuodessa.</p>
+        <h4>Konkreettiset tavoitteet</h4>
+        <ul>
+          <li>Hyväksyntä TAMKin insinööriohjelmaan kevään yhteishaussa.</li>
+          <li>240 opintopisteen suorittaminen suunnitellussa ajassa.</li>
+          <li>30 opintopisteen työharjoittelu.</li>
+          <li>Kandidaatintyö neljäntenä opiskeluvuonna.</li>
+          <li>Verkostoituminen ja työelämään valmistautuminen.</li>
+        </ul>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="container my-5" id="project-docs">
+    <h1 class="text-center">Projektin dokumentit</h1>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <ul>
+          <li>
+            <h5>Ryhmä Esitely</h5>
+            <button class="btn-custom" onclick="togglePDF('pdf1', 'btn1', 'download1')">Näytä PDF</button>
+            <button id="btn1" class="btn-custom" onclick="openFullScreen('pdf1')" style="display: none;">Koko näyttö</button>
+            <a id="download1" class="btn-custom" href="files/Project-Panic-Group-esittelydiat.pdf" download style="display: none;">Lataa PDF</a>
+            <iframe class="pdfViewer" id="pdf1" src="files/Project-Panic-Group-esittelydiat.pdf" width="100%" height="600px" style="display: none;"></iframe>
+          </li>
+          <li>
+            <h5>Projektisuunnitelma + Projektikuvaus</h5>
+            <button class="btn-custom" onclick="togglePDF('pdf2', 'btn2', 'download2')">Näytä PDF</button>
+            <button id="btn2" class="btn-custom" onclick="openFullScreen('pdf2')" style="display: none;">Koko näyttö</button>
+            <a id="download2" class="btn-custom" href="files/ProjectPlan-Gant-Project-Charter.pdf" download style="display: none;">Lataa PDF</a>
+            <iframe class="pdfViewer" id="pdf2" src="files/ProjectPlan-Gant-Project-Charter.pdf" width="100%" height="600px" style="display: none;"></iframe>
+          </li>
+          <li>
+            <h5>Projektiehdotus</h5>
+            <button class="btn-custom" onclick="togglePDF('pdf3', 'btn3', 'download3')">Näytä PDF</button>
+            <button id="btn3" class="btn-custom" onclick="openFullScreen('pdf3')" style="display: none;">Koko näyttö</button>
+            <a id="download3" class="btn-custom" href="files/Project-Panic-Group-Projektiehdotus.pdf" download style="display: none;">Lataa PDF</a>
+            <iframe class="pdfViewer" id="pdf3" src="files/Project-Panic-Group-Projektiehdotus.pdf" width="100%" height="600px" style="display: none;"></iframe>
+          </li>
+          <li>
+            <h5>Projektiehdotus Esitely</h5>
+            <button class="btn-custom" onclick="togglePDF('pdf4', 'btn4', 'download4')">Näytä PDF</button>
+            <button id="btn4" class="btn-custom" onclick="openFullScreen('pdf4')" style="display: none;">Koko näyttö</button>
+            <a id="download4" class="btn-custom" href="files/ProjectProposal.pdf" download style="display: none;">Lataa PDF</a>
+            <iframe class="pdfViewer" id="pdf4" src="files/ProjectProposal.pdf" width="100%" height="600px" style="display: none;"></iframe>
+          </li>
+          <li>
+            <h5>Gant taulukko</h5>
+            <button class="btn-custom" onclick="toggleExcel('excel5', 'downloadExcel5')">Näytä Excell</button>
+            <iframe id="excel5" width="100%" height="700px" frameborder="0" scrolling="yes" src="https://lut-my.sharepoint.com/personal/sara_virtanen_student_lab_fi/_layouts/15/Doc.aspx?sourcedoc={270f9f0c-aa3d-46da-bae7-bb7b791cf6b4}&action=embedview&wdAllowInteractivity=False&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True" style="display: none;"></iframe>
+            </iframe>
+          </li>
+          <li>
+            <h5>One Drive</h5>
+            <button class="btn-custom" onclick="openOneDrive()">Avaa OneDrive</button>
+          </li>
+          <li>
+            <h5>One GitHub</h5>
+            <button class="btn-custom" onclick="openGitHub()">Avaa GitHub</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class=" text-center py-3">
+    <h6>&copy; 2025 Project Panic Group | Team Work Presentation</h6>
+  </footer>
+
+  <script>
+    function openOneDrive() {
+      window.open("https://lut-my.sharepoint.com/:f:/g/personal/sara_virtanen_student_lab_fi/EmpYwdhvqupOkNYk0fC0C84BLew4-fVSXKFBr8QEBMtUQQ?e=uX5Eui", "_blank");
+    }
+
+    function openGitHub() {
+      window.open("https://github.com/orgs/Projektipaniikki/projects/3/views/1", "_blank");
+    }
+
+    function togglePDF(pdfId, btnId, downloadId) {
+      var pdf = document.getElementById(pdfId);
+      var btn = document.getElementById(btnId);
+      var downloadBtn = document.getElementById(downloadId);
+      var toggleBtn = event.target;
+
+      if (pdf.style.display === "none") {
+        pdf.style.display = "block";
+        btn.style.display = "inline-block";
+        downloadBtn.style.display = "inline-block";
+        toggleBtn.textContent = "Sulkea";
+      } else {
+        pdf.style.display = "none";
+        btn.style.display = "none";
+        downloadBtn.style.display = "none";
+        toggleBtn.textContent = "Näytä PDF";
+      }
+    }
+
+    function toggleExcel(excelId, downloadBtnId) {
+      var excelFrame = document.getElementById(excelId);
+      var toggleBtn = event.target;
+
+      if (excelFrame.style.display === "none") {
+        excelFrame.style.display = "block";
+        toggleBtn.textContent = "Sulkea";
+      } else {
+        excelFrame.style.display = "none";
+        toggleBtn.textContent = "Näytä Excell";
+      }
+    }
+
+
+    function openFullScreen(pdfId) {
+      var elem = document.getElementById(pdfId);
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) {
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) {
+        elem.msRequestFullscreen();
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const navLinks = document.querySelectorAll('.nav-link');
+      const navbarCollapse = document.getElementById('navbarNav');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          if (navbarCollapse.classList.contains('show')) {
+            navbarCollapse.classList.remove('show');
+          }
+        });
+      });
+    });
+
+
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 </html>
