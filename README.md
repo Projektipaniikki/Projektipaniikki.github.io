@@ -53,7 +53,3 @@ Kaavio, joka kuvaa projektin henkilörakenteen ja vastuut.
 Gantt-kaavio ja tarkempi projektikuvaus.
 
 ---
-
-## Lisenssi
-
-Tämä projekti on julkaistu [MIT-lisenssillä](LICENSE).
