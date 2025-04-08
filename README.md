@@ -2,7 +2,9 @@
 
 Tämä projekti keskittyy henkilökohtaisen, kokonaisvaltaisen opintosuunnitelman laatimiseen Olli-opiskelijalle. Tavoitteena on tukea opintoihin hakeutumista, opintojen etenemistä, talouden hallintaa sekä urakehitystä. Projektia hallitaan Kanban-menetelmällä, ja siihen sisältyy laaja suunnitelma, riskienhallinta sekä resurssien kartoitus.
 
-👉 **Katso esityssivu:** [projektipaniikki.github.io](https://projektipaniikki.github.io)
+👉 **Katso esityssivu:** [projektipaniikki.github.io](https://projektipaniikki.github.io)  
+👉 **Kanban:** [Kanban](https://github.com/orgs/Projektipaniikki/projects/3) 
+
 
 ---
 
