@@ -15,4 +15,4 @@ Toteutus
 * Suunnitelman luonti – Kursseihin ja opiskelutapoihin perustuva aikataulu
 * Toteutus ja seuranta – Edistymisen seuranta ja tarvittavat muutokset
 
-👉 Katso esitys: projektipaniikki.github.io
+👉 Katso esitys: [projektipaniikki.github.io](https://projektipaniikki.github.io)
