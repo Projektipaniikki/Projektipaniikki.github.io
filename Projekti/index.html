@@ -687,6 +687,10 @@
             <h5>GitHub</h5>
             <button class="btn-custom" onclick="openGitHub()">Avaa GitHub</button>
           </li>
+          <li>
+            <h5>GitHub Kanban</h5>
+            <button class="btn-custom" onclick="openKanban()">Avaa Kanban</button>
+          </li>
         </ul>
       </div>
     </div>
@@ -703,7 +707,11 @@
     }
 
     function openGitHub() {
-      window.open("https://github.com/orgs/Projektipaniikki/projects/3/views/1", "_blank");
+      window.open("https://github.com/Projektipaniikki/Projektipaniikki.github.io", "_blank");
+    }
+
+    function openKanban() {
+      window.open("https://github.com/orgs/Projektipaniikki/projects/3", "_blank");
     }
 
     function togglePDF(pdfId, btnId, downloadId) {
